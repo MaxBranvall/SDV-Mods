@@ -603,6 +603,13 @@ namespace CJBCheatsMenu.Framework
                             label: I18n.Controls_ResetControls(),
                             toggle: this.ResetControls,
                             slotWidth: context.SlotWidth
+                        ),
+                        new CheatsOptionsKeyListener(
+                            label: "Duplicate Items",
+                            value: this.GetSingleButton(config.DuplicateItemsKey),
+                            setValue: key => config.DuplicateItemsKey = new(key),
+                            slotWidth: context.SlotWidth,
+                            clearToButton: this.GetSingleButton(ModConfig.Defaults.DuplicateItemsKey)
                         )
                     );
                     break;
@@ -709,6 +716,7 @@ namespace CJBCheatsMenu.Framework
             config.GrowTreeKey = ModConfig.Defaults.GrowTreeKey;
             config.OpenMenuKey = ModConfig.Defaults.OpenMenuKey;
             config.GrowRadius = ModConfig.Defaults.GrowRadius;
+            config.DuplicateItemsKey = ModConfig.Defaults.DuplicateItemsKey;
 
             Game1.playSound("bigDeSelect");
 
