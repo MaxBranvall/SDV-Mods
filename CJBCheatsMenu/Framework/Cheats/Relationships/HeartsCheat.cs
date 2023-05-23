@@ -45,11 +45,12 @@ namespace CJBCheatsMenu.Framework.Cheats.Relationships
         /// <param name="needsUpdate">Whether the cheat should be notified of game updates.</param>
         /// <param name="needsInput">Whether the cheat should be notified of button presses.</param>
         /// <param name="needsRendering">Whether the cheat should be notified of render ticks.</param>
-        public override void OnConfig(CheatContext context, out bool needsInput, out bool needsUpdate, out bool needsRendering)
+        public override void OnConfig(CheatContext context, out bool needsInput, out bool needsUpdate, out bool needsRendering, out bool needsInventoryChanged)
         {
             needsInput = false;
             needsUpdate = context.Config.NoFriendshipDecay;
             needsRendering = false;
+            needsInventoryChanged = false;
         }
 
 

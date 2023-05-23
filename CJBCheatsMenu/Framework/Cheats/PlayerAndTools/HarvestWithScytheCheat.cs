@@ -33,12 +33,13 @@ namespace CJBCheatsMenu.Framework.Cheats.PlayerAndTools
         /// <param name="needsUpdate">Whether the cheat should be notified of game updates.</param>
         /// <param name="needsInput">Whether the cheat should be notified of button presses.</param>
         /// <param name="needsRendering">Whether the cheat should be notified of render ticks.</param>
-        public override void OnConfig(CheatContext context, out bool needsInput, out bool needsUpdate, out bool needsRendering)
+        public override void OnConfig(CheatContext context, out bool needsInput, out bool needsUpdate, out bool needsRendering, out bool needsInventoryChanged)
         {
             bool enabled = context.Config.HarvestScythe;
             needsInput = false;
             needsUpdate = enabled;
             needsRendering = false;
+            needsInventoryChanged = false;
 
             // disable harvest with scythe
             if (!enabled)

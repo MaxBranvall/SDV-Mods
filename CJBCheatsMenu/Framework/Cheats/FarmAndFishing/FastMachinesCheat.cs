@@ -205,7 +205,7 @@ namespace CJBCheatsMenu.Framework.Cheats.FarmAndFishing
         /// <param name="needsUpdate">Whether the cheat should be notified of game updates.</param>
         /// <param name="needsInput">Whether the cheat should be notified of button presses.</param>
         /// <param name="needsRendering">Whether the cheat should be notified of render ticks.</param>
-        public override void OnConfig(CheatContext context, out bool needsInput, out bool needsUpdate, out bool needsRendering)
+        public override void OnConfig(CheatContext context, out bool needsInput, out bool needsUpdate, out bool needsRendering, out bool needsInventoryChanged)
         {
             needsInput = false;
             needsUpdate = this
@@ -213,6 +213,7 @@ namespace CJBCheatsMenu.Framework.Cheats.FarmAndFishing
                 .Cast<CheatsOptionsCheckbox>()
                 .Any(p => p.IsChecked);
             needsRendering = false;
+            needsInventoryChanged = false;
         }
 
         /// <summary>Handle a game update if <see cref="ICheat.OnSaveLoaded"/> indicated updates were needed.</summary>

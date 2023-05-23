@@ -42,11 +42,12 @@ namespace CJBCheatsMenu.Framework.Cheats
         /// <param name="needsUpdate">Whether the cheat should be notified of game updates.</param>
         /// <param name="needsInput">Whether the cheat should be notified of button presses.</param>
         /// <param name="needsRendering">Whether the cheat should be notified of render ticks.</param>
-        public override void OnConfig(CheatContext context, out bool needsInput, out bool needsUpdate, out bool needsRendering)
+        public override void OnConfig(CheatContext context, out bool needsInput, out bool needsUpdate, out bool needsRendering, out bool needsInventoryChanged)
         {
             needsInput = context.Config.GrowCropsKey.IsBound || context.Config.GrowTreeKey.IsBound;
             needsUpdate = needsInput;
             needsRendering = false;
+            needsInventoryChanged = false;
         }
 
         /// <summary>Handle the player pressing or releasing any buttons if <see cref="ICheat.OnSaveLoaded"/> indicated input was needed.</summary>
