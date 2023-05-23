@@ -67,9 +67,18 @@ namespace CJBCheatsMenu
             helper.Events.GameLoop.UpdateTicked += this.OnUpdateTicked;
 
             helper.Events.Input.ButtonsChanged += this.OnButtonChanged;
+            helper.Events.Input.ButtonPressed += this.Input_ButtonPressed;
 
             helper.Events.World.LocationListChanged += this.OnLocationListChanged;
             helper.Events.Player.InventoryChanged += this.Player_InventoryChanged;
+        }
+
+        private void Input_ButtonPressed(object? sender, ButtonPressedEventArgs e)
+        {
+            if (e.Button == SButton.NumPad3)
+            {
+                this.Cheats.Value.OnOptionsChanged();
+            }
         }
 
 
