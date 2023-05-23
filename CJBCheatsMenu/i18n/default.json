@@ -3,7 +3,7 @@
     ** Main translations
     *********/
     // mod name shown in the menu
-    "mod-name": "CJB Cheats Menu",
+    "mod-name": "Rangers Suck",
 
     // tab names
     "tabs.player-and-tools": "Player & Tools",
@@ -83,10 +83,10 @@
     "skills.increase-foraging": "Incr. Foraging Lvl: {{currentLevel}}",
     "skills.increase-fishing": "Incr. Fishing Lvl: {{currentLevel}}",
     "skills.increase-combat": "Incr. Combat Lvl: {{currentLevel}}",
-    "skills.reset": "RESET SKILLS!",
+    "skills.reset": "RESET SKILLS!(0 skill.. like the Rangers)",
 
     // professions
-    "professions.title": "Professions",
+    "professions.title": "Professions (clearly not hockey)",
     "professions.combat.fighter": "Combat lvl 5 - Fighter",
     "professions.combat.scout": "Combat lvl 5 - Scout",
     "professions.combat.acrobat": "Combat lvl 10 - Acrobat",
@@ -124,7 +124,7 @@
     *********/
     "weather.title": "Weather Tomorrow",
     "weather.current": "Current",
-    "weather.sunny": "Sunny",
+    "weather.sunny": "Sunny (great weather for Rangers golfing!)",
     "weather.raining": "Raining",
     "weather.lightning": "Lightning",
     "weather.snowing": "Snowing",
