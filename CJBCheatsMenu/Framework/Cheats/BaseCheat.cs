@@ -22,11 +22,13 @@ namespace CJBCheatsMenu.Framework.Cheats
         /// <param name="needsUpdate">Whether the cheat should be notified of game updates.</param>
         /// <param name="needsInput">Whether the cheat should be notified of button presses.</param>
         /// <param name="needsRendering">Whether the cheat should be notified of render ticks.</param>
-        public virtual void OnConfig(CheatContext context, out bool needsInput, out bool needsUpdate, out bool needsRendering)
+        /// /// <param name="needsInventoryChanged">Whether the cheat should be notified of player inventory changes.</param>
+        public virtual void OnConfig(CheatContext context, out bool needsInput, out bool needsUpdate, out bool needsRendering, out bool needsInventoryChanged)
         {
             needsInput = false;
             needsUpdate = false;
             needsRendering = false;
+            needsInventoryChanged = false;
         }
 
         /// <summary>Handle the player loading a save file.</summary>
@@ -42,6 +44,8 @@ namespace CJBCheatsMenu.Framework.Cheats
         /// <param name="context">The cheat context.</param>
         /// <param name="e">The update event arguments.</param>
         public virtual void OnUpdated(CheatContext context, UpdateTickedEventArgs e) { }
+
+        public virtual void OnInventoryChanged(CheatContext context, InventoryChangedEventArgs e) { }
 
         /// <summary>Raised before the game begins writing data to the save file (except the initial save creation).</summary>
         /// <param name="context">The cheat context.</param>

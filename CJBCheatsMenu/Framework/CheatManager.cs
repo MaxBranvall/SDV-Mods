@@ -36,6 +36,11 @@ namespace CJBCheatsMenu.Framework
         /// <summary>The cheat implementations which should be notified of render ticks.</summary>
         private readonly List<ICheat> CheatsWhichNeedRendering = new();
 
+        /// <summary>
+        /// The cheat implementations which should be notified of inventory changes.
+        /// </summary>
+        private readonly List<ICheat> CheatsWhichNeedInventoryChanged = new();
+
         /// <summary>The backing field for <see cref="NoFriendshipDecay"/>.</summary>
         private readonly NoFriendshipDecayCheat NoFriendshipDecayImpl = new();
 
@@ -90,6 +95,7 @@ namespace CJBCheatsMenu.Framework
 
         /// <summary>Adds various numbers of Qi gems to the player.</summary>
         public ICheat AddQiGems { get; } = new AddQiGemsCheat();
+        public ICheat DuplicateItems { get; } = new DuplicateItemsCheat();
 
         /****
         ** Farming & fishing
@@ -248,15 +254,19 @@ namespace CJBCheatsMenu.Framework
             this.CheatsWhichNeedUpdate.Clear();
             this.CheatsWhichNeedInput.Clear();
             this.CheatsWhichNeedRendering.Clear();
+            this.CheatsWhichNeedInventoryChanged.Clear();
+
             foreach (ICheat cheat in this.Cheats)
             {
-                cheat.OnConfig(this.Context, out bool needsInput, out bool needsUpdate, out bool needsRendering);
+                cheat.OnConfig(this.Context, out bool needsInput, out bool needsUpdate, out bool needsRendering, out bool needsInventoryChanged);
                 if (needsInput)
                     this.CheatsWhichNeedInput.Add(cheat);
                 if (needsUpdate)
                     this.CheatsWhichNeedUpdate.Add(cheat);
                 if (needsRendering)
                     this.CheatsWhichNeedRendering.Add(cheat);
+                if (needsInventoryChanged)
+                    this.CheatsWhichNeedInventoryChanged.Add(cheat);
             }
         }
 
@@ -288,6 +298,12 @@ namespace CJBCheatsMenu.Framework
         {
             foreach (ICheat cheat in this.CheatsWhichNeedInput)
                 cheat.OnButtonsChanged(this.Context, e);
+        }
+
+        public void OnInventoryChanged(InventoryChangedEventArgs e)
+        {
+            foreach (ICheat cheat in this.CheatsWhichNeedInventoryChanged)
+                cheat.OnInventoryChanged(this.Context, e);
         }
     }
 }

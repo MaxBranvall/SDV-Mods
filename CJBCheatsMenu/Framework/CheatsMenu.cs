@@ -394,6 +394,7 @@ namespace CJBCheatsMenu.Framework
                         cheats.InstantCooldowns,
                         cheats.OneHitKill,
                         cheats.MaxDailyLuck,
+                        cheats.DuplicateItems,
                         cheats.MoveSpeed,
                         cheats.InventorySize
                     );

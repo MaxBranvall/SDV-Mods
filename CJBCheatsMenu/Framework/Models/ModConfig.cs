@@ -66,6 +66,11 @@ namespace CJBCheatsMenu.Framework.Models
         /// <summary>The player can harvest any crop with the scythe.</summary>
         public bool HarvestScythe { get; set; }
 
+        /// <summary>
+        /// The player can duplicate items
+        /// </summary>
+        public bool DuplicateItems { get; set; }
+
         /****
         ** Fishing cheats
         ****/

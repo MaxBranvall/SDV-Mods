@@ -20,7 +20,8 @@ namespace CJBCheatsMenu.Framework.Cheats
         /// <param name="needsUpdate">Whether the cheat should be notified of game updates and saves.</param>
         /// <param name="needsInput">Whether the cheat should be notified of button presses.</param>
         /// <param name="needsRendering">Whether the cheat should be notified of render ticks.</param>
-        void OnConfig(CheatContext context, out bool needsInput, out bool needsUpdate, out bool needsRendering);
+        /// <param name="needsInventoryChanged">Whether the cheat should be notified of player inventory changes.</param>
+        void OnConfig(CheatContext context, out bool needsInput, out bool needsUpdate, out bool needsRendering, out bool needsInventoryChanged);
 
         /// <summary>Handle the player loading a save file.</summary>
         /// <param name="context">The cheat context.</param>
@@ -39,6 +40,13 @@ namespace CJBCheatsMenu.Framework.Cheats
         /// <summary>Raised before the game begins writing data to the save file (except the initial save creation).</summary>
         /// <param name="context">The cheat context.</param>
         void OnSaving(CheatContext context);
+
+        /// <summary>
+        /// Raised when player drops inventory item
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        void OnInventoryChanged(CheatContext sender, InventoryChangedEventArgs e);
 
         /// <summary>Handle the game draws to the sprite patch in a draw tick, just before the final sprite batch is rendered to the screen.</summary>
         /// <param name="context">The cheat context.</param>

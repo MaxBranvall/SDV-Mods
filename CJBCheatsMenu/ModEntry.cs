@@ -69,12 +69,23 @@ namespace CJBCheatsMenu
             helper.Events.Input.ButtonsChanged += this.OnButtonChanged;
 
             helper.Events.World.LocationListChanged += this.OnLocationListChanged;
+            helper.Events.Player.InventoryChanged += this.Player_InventoryChanged;
         }
 
 
         /*********
         ** Private methods
         *********/
+        /// <summary>
+        /// Raised when players inventory changes
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Player_InventoryChanged(object? sender, InventoryChangedEventArgs e)
+        {
+            this.Cheats.Value.OnInventoryChanged(e);
+        }
+
         /// <summary>Raised after the player loads a save slot.</summary>
         /// <param name="sender">The event sender.</param>
         /// <param name="e">The event arguments.</param>
